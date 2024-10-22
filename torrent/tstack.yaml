@@ -6,9 +6,28 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: http://gitea.priv/mlb/Kubernetes.git
-    path: tstack
-    targetRevision: HEAD
+    repoURL: ghcr.io/matlerbru/charts
+    targetRevision: 0.1.0
+    chart: tstack
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: torrent
+  syncPolicy:  
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tstack-p
+  namespace: torrent
+spec:
+  project: default
+  source:
+    repoURL: ghcr.io/matlerbru/charts
+    targetRevision: 0.1.0
+    chart: tstack
   destination:
     server: https://kubernetes.default.svc
     namespace: torrent
