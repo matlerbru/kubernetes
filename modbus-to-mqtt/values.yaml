@@ -1,6 +1,4 @@
 image:
-  registry: gitea.priv
-  name: mlb/modbus-to-mqtt
+  registry: ghcr.io
+  name: matlerbru/modbus-to-mqtt
   tag: latest
-
-  pullSecret: gitea-registry
