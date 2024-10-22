@@ -2,3 +2,4 @@ image:
   registry: ghcr.io
   name: matlerbru/modbus-to-mqtt
   tag: latest
+  pullPolicy: IfNotPresent
