@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitea
+  namespace: devops
+spec:
+project: default
+source:
+  repoURL: ghcr.io/matlerbru/charts
+  targetRevision: 0.1.0
+  chart: modbus-to-mqtt
+destination:
+  server: https://kubernetes.default.svc
+  namespace: home
