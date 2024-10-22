@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}
+        image: {{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
+        volumeMounts:
+        - name: {{ .Release.Name }}-config
+          mountPath: /modbus-to-mqtt/config.yaml
+          subPath: config.yaml
+      imagePullSecrets: 
+      - name: {{ .Values.image.pullSecret }}
+      volumes:
+      - name: {{ .Release.Name }}-config
+        configMap:
+          name: {{ .Release.Name }}
