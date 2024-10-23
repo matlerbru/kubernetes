@@ -43,19 +43,3 @@ spec:
       prune: true
       selfHeal: true
 ---
-apiVersion: bitnami.com/v1alpha1
-kind: SealedSecret
-metadata:
-  creationTimestamp: null
-  name: tstack-credentials
-  namespace: devops
-spec:
-  encryptedData:
-    password: AgA+GObeoyLBi8tqv86/0+ZoHTF7YDDdfLOEhTgUNVanFYDJgPBXps46b8Wo6VEy8bxrcjmEF+xkADNpvjDNGLSM4mZK1HsukysxoJzB+J9Mi1Pr9w7W8lqUgtiXJO3lWs9i2MAly0TpWasSH5n8ZtPAmk/alDnytCptHygCRAH+vP7W0z+1+x3r528MxWjKIYcmffeJ6SoH9s4H1uiZIkvHooRuJINg0Mz8rKfF1/K3+Rbevdv3uIPQucJFNoHIJprXaxbxJrDEuP4YoMvbnFpXZddnfkGcrpZlZ6yzcpd+ttvILt1q11P3LSddIp6DxCT6NPbxokHO7ajJ+oB9IBT/jGCdRJUFmt2fp5T0HEDSwNFYnBwGn4Osu/WTe3UuII0sax6R9pVOlmnsadccXbE1RKy8/FzoaSyVtFHQm37EDAl5dDdy798HXUIimCW0r06CbTsIwEDkB66H8A7AV4vrQAbtEgmU4KVjqFWvz5Jj2XyxhNjp12AulECtJ4OVnwZgf4RGtuD0pgoZ9nK+N4uqdACIev5KRVRM+sSpgF9HHFbM+qrOrgMimbGicsXJ1ErJSxBFcC+YCpbGPpgr5pP8e6GaMcd1nQrOYid3qCS+CVRaq0CTVz2lCa9VIog0Fs3bg91vzRbKY6Sd6/wYqHXKQ9iYgAjhFkd51pQBTG4CBi5FV+vnO43rnW3iKdb3jzayG9SEoCra9r93W9YuVfU=
-    username: AgAXv87X7NVKurjgPhsnzD9VAYMWWDcROv8RiOBwwEAvKUGo6MBOVgkOqHUZ6V1j58gLEqzOAUlsrwcmwPjXAKEXglm/vXxMJVEOG09sI1Rhv1jJf14sQBwUBkBJNdg13fnEBSdLhQ3rWP/Fbqwb5GncM3RdHyvpBUydzEyrVJGYfl1cYCaOpTMdydQLFEuO61iBxqJMDu7lW9KMauKH3M1Sj0jP1tbuajqI6GGLONnkopEzmqfhRnFsTSQBL8b2ovnt3ce737i1lcBIz5TxS08mzbwR9QuQLS1l3tFDtjReLMHSUWFmqKb6o3JbZiP5k6kY/Emh4pG6q/RKRPvNQZXfRthioY9ophYuHJNThZugwaCGyatEn6636aWGoshl5XZhsTaSB1ATeuEHMKhNDwOgyHcac+VdA/TRTRMmbpFsckIzj5lPcT4bdZULSf2L8H+9Ey/r+7heK9RUyDU22D3aZKeOMKB/HoZ+90MS/IATi750TyGClPxzg16aBzl3l0bnJH9/OLBT8xzI4WeNT8OZr5TzIwRK6aH+dCdve/BIsV+0vPNI+mQIJ1mjnhEPqqX+0KH4sWif2awLepHoCRypTr2CjmUNJqvhh1lG/zQftZPjXEHEA+NCGTQH+FDawRzZb4KZURI4tXkhng8BIuvLGjhjKnZSEJfZvYvxtKMXJYrfnGbqiBN1YATTAHvY/To15Yvho/xTSCDYojF6dGi8h6fCGg==
-  template:
-    metadata:
-      creationTimestamp: null
-      name: tstack-credentials
-      namespace: torrent
----
