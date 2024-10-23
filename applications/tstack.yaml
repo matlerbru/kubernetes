@@ -39,6 +39,7 @@ spec:
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
+  creationTimestamp: null
   name: expressvpn-credentials
   namespace: devops
 spec:
@@ -48,5 +49,6 @@ spec:
     username: AgBBV9OAqFZYZLgmjM/eFPUaGn67os5klhUuWMws4fJI5IGcSYlSxeCwD3NIOrDFegLOn5/Ez7297SVNm9F3mGHUvm8KZttPJ6Ky+OMDgE1DGlmF1UkErS2WNfUCjq9vAgUGKe3F2WVK3d6T7S/+j52rvsA4Zt+XX45EvD5KcFXkVSSmjlb/IYLQLUsPuFIcNLssjHBJgX27UOSfA3hjPrpnDwSu26FKny0ew+YPNKNZC3MC7NZVniIO0zBWZZHVMtPwo1Zor5p4a6gYxmS/ECtB/2U82ZjsgqXRfdapHQYP+NaN890HuhN73oiVxSwC0M7Bnlm2O+Fz4fQAqQPqqp6QHAPG+Gwlz5SNrhSmSqdCY5Xh33WHT6qZxLnDPlvv+vO8r06klnC0mKogVO1OEdPJUVWQX/5LtrVpUT8mOwcjql9iUKL42qaDNnT7xf3A5XxdFp/OHeO5Qq3H0uOUGwQtc/uPmbaB1SUCt4DI2RoJf6SrUKRrAv5dJimWCFc2CeJhbWznhlY4sHlT3wHvLPDWgYIBKSHpzgrapyFFujvHrIZk7Zh4NtSdKxQZST+XQ8GY5yJzHJ/y4Gn0WKXXR5iJdOMEA0OPt4ZccRLA81IpqrK6jdLTbP5upFN83XymsK49FRy3AtWbMnL5dp4RhlHQK7FTEJD7N9sg7Gc6naN8tLs9zbtWbVOJK3h64JWKZAHzd7LzeVWle4B+/R7a2x4q3G5/xfPz9fo=
   template:
     metadata:
+      creationTimestamp: null
       name: expressvpn-credentials
       namespace: torrent
