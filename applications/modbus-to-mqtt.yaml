@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://ghcr.io/matlerbru/charts
+    repoURL: ghcr.io/matlerbru/charts
     targetRevision: 0.1.0
     chart: modbus-to-mqtt
   destination:
