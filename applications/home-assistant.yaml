@@ -40,12 +40,12 @@ spec:
             condition: []
             action:
               - type: toggle
-                device_id: 9ea3ad3bad0b6a42b1e2d38cac33092e
-                entity_id: cf0549e3afee1d083651b47c1f8357ac
+                device_id: 9b59cff9c86371925ef4662f0451f397
+                entity_id: 24e0365b841879141592e63f6aa8b737
                 domain: light
               - domain: light
-                device_id: 204b76e694f4420b479e5435bdb0f24b
-                entity_id: 850c6ef316499cd1a7c21220694211a3
+                device_id: 1579f4b0f626aa805217cdfb8d0afb77
+                entity_id: 501738621f329b91769b6be928d90b7f
                 type: toggle
             mode: single
 
@@ -59,11 +59,11 @@ spec:
             action:
               - domain: light
                 type: brightness_decrease
-                device_id: 9ea3ad3bad0b6a42b1e2d38cac33092e
-                entity_id: cf0549e3afee1d083651b47c1f8357ac
+                device_id: 9b59cff9c86371925ef4662f0451f397
+                entity_id: 24e0365b841879141592e63f6aa8b737
               - domain: light
-                device_id: 204b76e694f4420b479e5435bdb0f24b
-                entity_id: 850c6ef316499cd1a7c21220694211a3
+                device_id: 1579f4b0f626aa805217cdfb8d0afb77
+                entity_id: 501738621f329b91769b6be928d90b7f
                 type: brightness_decrease
             mode: single
 
@@ -76,12 +76,12 @@ spec:
             condition: []
             action:
               - domain: light
-                device_id: 9ea3ad3bad0b6a42b1e2d38cac33092e
-                entity_id: cf0549e3afee1d083651b47c1f8357ac
+                device_id: 9b59cff9c86371925ef4662f0451f397
+                entity_id: 24e0365b841879141592e63f6aa8b737
                 type: brightness_increase
               - domain: light
-                device_id: 204b76e694f4420b479e5435bdb0f24b
-                entity_id: 850c6ef316499cd1a7c21220694211a3
+                device_id: 1579f4b0f626aa805217cdfb8d0afb77
+                entity_id: 501738621f329b91769b6be928d90b7f
                 type: brightness_increase
             mode: single
 
@@ -94,8 +94,8 @@ spec:
             condition: []
             action:
               - type: toggle
-                device_id: 204b76e694f4420b479e5435bdb0f24b
-                entity_id: 850c6ef316499cd1a7c21220694211a3
+                device_id: 1579f4b0f626aa805217cdfb8d0afb77
+                entity_id: 501738621f329b91769b6be928d90b7f
                 domain: switch
             mode: single
 
@@ -104,14 +104,14 @@ spec:
             trigger:
               - platform: device
                 type: turned_on
-                device_id: 9ea3ad3bad0b6a42b1e2d38cac33092e
-                entity_id: cf0549e3afee1d083651b47c1f8357ac
+                device_id: 9b59cff9c86371925ef4662f0451f397
+                entity_id: 24e0365b841879141592e63f6aa8b737
                 domain: light
             condition: []
             action:
               - type: turn_on
-                device_id: 204b76e694f4420b479e5435bdb0f24b
-                entity_id: 850c6ef316499cd1a7c21220694211a3
+                device_id: 1579f4b0f626aa805217cdfb8d0afb77
+                entity_id: 501738621f329b91769b6be928d90b7f
                 domain: switch
             mode: single
 
@@ -120,14 +120,14 @@ spec:
             trigger:
               - platform: device
                 type: turned_off
-                device_id: 9ea3ad3bad0b6a42b1e2d38cac33092e
-                entity_id: cf0549e3afee1d083651b47c1f8357ac
+                device_id: 9b59cff9c86371925ef4662f0451f397
+                entity_id: 24e0365b841879141592e63f6aa8b737
                 domain: light
             condition: []
             action:
               - type: turn_off
-                device_id: 204b76e694f4420b479e5435bdb0f24b
-                entity_id: 850c6ef316499cd1a7c21220694211a3
+                device_id: 1579f4b0f626aa805217cdfb8d0afb77
+                entity_id: 501738621f329b91769b6be928d90b7f
                 domain: switch
             mode: single
 
@@ -140,8 +140,8 @@ spec:
             condition: []
             action:
               - type: toggle
-                device_id: c4c37a6f5e8a29c37ff61a72c5445434
-                entity_id: 4a3441441cb26401691d6663d0ca6448
+                device_id: 9a583ab3611e2f76ce766189798385ce
+                entity_id: 1f9e65efd24a0d25161c37d9b946bb2d
                 domain: light
             mode: single
 
@@ -153,8 +153,8 @@ spec:
                 payload: "{\"address\": 9, \"press\": \"short\"}"
             condition: []
             action:
-              - device_id: c4c37a6f5e8a29c37ff61a72c5445434
-                entity_id: 4a3441441cb26401691d6663d0ca6448
+              - device_id: 9a583ab3611e2f76ce766189798385ce
+                entity_id: 1f9e65efd24a0d25161c37d9b946bb2d
                 domain: light
                 type: brightness_decrease
             mode: single
@@ -167,8 +167,8 @@ spec:
                 payload: "{\"address\": 8, \"press\": \"short\"}"
             condition: []
             action:
-              - device_id: c4c37a6f5e8a29c37ff61a72c5445434
-                entity_id: 4a3441441cb26401691d6663d0ca6448
+              - device_id: 9a583ab3611e2f76ce766189798385ce
+                entity_id: 1f9e65efd24a0d25161c37d9b946bb2d
                 domain: light
                 type: brightness_increase
             mode: single
@@ -182,8 +182,8 @@ spec:
             condition: []
             action:
               - type: toggle
-                device_id: 0c9a09b5184963a9b14aecd3138cc18f
-                entity_id: 719e7150fdec44f7d092f34572e6b6e4
+                device_id: bcda68128afaa62b6b9f41e73c88ad49
+                entity_id: 2f99487fa0c2a1a894c16affa56f66b7
                 domain: light
             mode: single
 
@@ -195,8 +195,8 @@ spec:
                 payload: "{\"address\": 18, \"press\": \"short\"}"
             condition: []
             action:
-                device_id: 0c9a09b5184963a9b14aecd3138cc18f
-                entity_id: 719e7150fdec44f7d092f34572e6b6e4
+                device_id: bcda68128afaa62b6b9f41e73c88ad49
+                entity_id: 2f99487fa0c2a1a894c16affa56f66b7
                 domain: light
                 type: brightness_decrease
             mode: single
@@ -210,8 +210,8 @@ spec:
             condition: []
             action:
               - domain: light
-                device_id: 0c9a09b5184963a9b14aecd3138cc18f
-                entity_id: 719e7150fdec44f7d092f34572e6b6e4
+                device_id: bcda68128afaa62b6b9f41e73c88ad49
+                entity_id: 2f99487fa0c2a1a894c16affa56f66b7
                 type: brightness_increase
             mode: single
 
@@ -234,8 +234,8 @@ spec:
             trigger:
               - platform: device
                 type: turned_on
-                device_id: 0c9a09b5184963a9b14aecd3138cc18f
-                entity_id: 719e7150fdec44f7d092f34572e6b6e4
+                device_id: bcda68128afaa62b6b9f41e73c88ad49
+                entity_id: 2f99487fa0c2a1a894c16affa56f66b7
                 domain: light
             condition: []
             action:
@@ -250,8 +250,8 @@ spec:
             trigger:
               - platform: device
                 type: turned_off
-                device_id: 0c9a09b5184963a9b14aecd3138cc18f
-                entity_id: 719e7150fdec44f7d092f34572e6b6e4
+                device_id: bcda68128afaa62b6b9f41e73c88ad49
+                entity_id: 2f99487fa0c2a1a894c16affa56f66b7
                 domain: light
             condition: []
             action:
