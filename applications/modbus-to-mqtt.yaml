@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: modbus-to-mqtt
-  namespace: home
+  namespace: devops
 spec:
   project: default
   source:
