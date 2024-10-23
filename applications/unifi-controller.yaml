@@ -7,8 +7,8 @@ spec:
   project: default
   source:
     repoURL: ghcr.io/matlerbru/charts
-    targetRevision: 0.1.0
-    chart: unifi-controller
+    targetRevision: 0.2.0
+    chart: unifi-scontroller
   destination:
     server: https://kubernetes.default.svc
     namespace: home
