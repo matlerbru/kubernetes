@@ -28,6 +28,13 @@ spec:
     repoURL: ghcr.io/matlerbru/charts
     targetRevision: 0.1.0
     chart: tstack
+    helm:
+      values: |
+        ingress:
+          transmission:
+            host: transmission-p.priv
+          jellyfin:
+            host: jellyfin-p.priv
   destination:
     server: https://kubernetes.default.svc
     namespace: torrent
