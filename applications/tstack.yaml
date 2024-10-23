@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: ghcr.io/matlerbru/charts
-    targetRevision: 0.1.0
+    targetRevision: 0.1.1
     chart: tstack
   destination:
     server: https://kubernetes.default.svc
@@ -26,7 +26,7 @@ spec:
   project: default
   source:
     repoURL: ghcr.io/matlerbru/charts
-    targetRevision: 0.1.0
+    targetRevision: 0.1.1
     chart: tstack
     helm:
       values: |
@@ -47,15 +47,15 @@ apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
   creationTimestamp: null
-  name: expressvpn-credentials
+  name: tstack-credentials
   namespace: devops
 spec:
   encryptedData:
-    config: AgCYCzKoPGJ2d6ueYtr4VQwd6QWPeQNbN0iioZuTdA+Ar8gxAD/5S86jgizSeDpfI1V2H8fYxjESytj5Nq36sGPKrGPUgE7y2YGoixxpYvb8T2cag25gS106TSdn3tGjDRDcMhbZ6yBj+c2+NgPvyqieY9OCzYTCtH3QtzxupYwmORVchUGfr9UhIjsabhYPP/AVdpAMq8dk0OV8EjUZ11794hLnLf4PpNUk88Xmz4PdxEbaxJ1X5wmdc5HIAp0exNfPIUI/81aQdrZouv+1yA9AXNfPKqX7ORh5wfioPfAm97ffg3zVHSw1Sth0b9bypbfWS7qJrC14ldgs8TNoHERqRydvJNJx82ahEAwReh/tRE5G1sTWVXA0+Hmxos9W2EClt8sa4MXF+ngZk1qMIibmRTsY3dA0wMZ/9bPh129+YR1r21G2dLPVbIk26jdtA2GJlQAfNFjGWr1WFPO3h96lNL01URLjLkTD1OzDVpQ+fwMTIvkHH8xUDanzs+cT+yAiEpTHMvsjVwnm/GpNaPoK/R+cmlJZf7RZIr25dR1v8SkgON2D3AbI19PNjxP7VSy38WoaDRMAJtp40cP6XaI+p2vAaX0dwCFySL2oImrVYZg/0RxDSvznz1fcBAFw5BWZ/Zyl4Kw/Pe0/cFr/twoE305nNTD28x00B0bgtrsEW84TgiCRBfsFlCyIhgw+o+5jhrqvf731ciNvWcxDZ5y8Sh46f6JegC7iGLWJAg==
-    password: AgBehIwMgkmi00iw69MFDv+rVg96idFzfNX3QZYYDLTRiNupY0IbzuzXgYIATg96HiyUqRPR/RKuxV2ie3aAY9FCqKahcmKsvEvDkHB+i8w2QAoSsIeH+FgwOwX7uDaQUvCBMVX+cOXc/qHip661m/qkGujQ5/88KsEeZxoGgHcdpiBnUysvQyynl4YVvX/DxZGqulu5Oe5VX40oa+vAZRUysTQgD22srFjkEtNqveZBX8CM+kWP7I5yIAu9Wj09pjRoWns5E+/kz1A+GaYJWv0O2QEn1D/tHBTMdRa63MlNpysgW9WU3z1XWFtOeTK5PI3c/Fu2A/B+Lr9Vt9YjZFSs3i11aclj56NX06M9z//6H209zBVdknPfWaz86rAQfdvK+OzvOge/tKlYnX/0Lmr4hOryWkbwD4K6XuE39MJn+iF5oTQydJFh41Mc+xc4WN0eBfHuYpRdLqUEPRLimmMkHRzo0OcQcqqT2P6ia6FlMLdIIH1w+jWchrxNIr8bDOEaZTHIb+LYnDG+EQ079504CVXxVmcAxFPjtqXMPoQqT3ohntAmExLlAqSelcJSrRdISzMsQggYyoAFCsybpzbnmy4LdaqX2BN0wfW3WBJ+Av/ZYUoggaUaectDlQ88tfENDb13m0tyTPNwyPHS9eBJb0D7dWiCwFOnUMWK9mfToOWKuC+v8W9uLt8pMg11mjIIN4hdtZsSDThDAQKVZmGx7FmFiGcngOo=
-    username: AgBBV9OAqFZYZLgmjM/eFPUaGn67os5klhUuWMws4fJI5IGcSYlSxeCwD3NIOrDFegLOn5/Ez7297SVNm9F3mGHUvm8KZttPJ6Ky+OMDgE1DGlmF1UkErS2WNfUCjq9vAgUGKe3F2WVK3d6T7S/+j52rvsA4Zt+XX45EvD5KcFXkVSSmjlb/IYLQLUsPuFIcNLssjHBJgX27UOSfA3hjPrpnDwSu26FKny0ew+YPNKNZC3MC7NZVniIO0zBWZZHVMtPwo1Zor5p4a6gYxmS/ECtB/2U82ZjsgqXRfdapHQYP+NaN890HuhN73oiVxSwC0M7Bnlm2O+Fz4fQAqQPqqp6QHAPG+Gwlz5SNrhSmSqdCY5Xh33WHT6qZxLnDPlvv+vO8r06klnC0mKogVO1OEdPJUVWQX/5LtrVpUT8mOwcjql9iUKL42qaDNnT7xf3A5XxdFp/OHeO5Qq3H0uOUGwQtc/uPmbaB1SUCt4DI2RoJf6SrUKRrAv5dJimWCFc2CeJhbWznhlY4sHlT3wHvLPDWgYIBKSHpzgrapyFFujvHrIZk7Zh4NtSdKxQZST+XQ8GY5yJzHJ/y4Gn0WKXXR5iJdOMEA0OPt4ZccRLA81IpqrK6jdLTbP5upFN83XymsK49FRy3AtWbMnL5dp4RhlHQK7FTEJD7N9sg7Gc6naN8tLs9zbtWbVOJK3h64JWKZAHzd7LzeVWle4B+/R7a2x4q3G5/xfPz9fo=
+    password: AgAaff7lEBOElmjv17H9IqO3oIjfE/poOQnVUvmEdYdMeh7tfW7PPisdRjPsdrAdzUHOljGsYqAr6CQgaQRsR2sgrZh8Z/3YFKGTBKTo/xvXQQPw45IbpboeeAr+xKFm0OViYLeIz2Zaj93iEyWDugmb32Q36zLKboWlu7u4pV//bH0pCiKIbBuidOzzAKJ3jM4EmsXFcPEllrRVKaWmcHFVECytZmkHe1mkGgFQ1Pnc2Gc0uYWrQ4jauRkP10r9V58vAs2I/2wX7yZHjy+jIrrjtGNqCX8TmaRbpjUutndNJckx/T+T8BIk8PorvARVgAul+OWQQCIYZtYZe49hLZJaHJH5ty9h3SCdh7gLD9tizG+C2AYCVu5/TSadUwXUoGw27DCDhSNet5uCVm5vwjdD7nkKiyI6PAuCqjTv7eMPBZhfQI25zI5TYFxstCOqiEbawQDF+/7sbqtoCcYAg6ZXN/Xg7Qjk0kAsDj+bX3cb4v5xRVFiM+hBq8ynH1+udrHoA+f3s9zA0WNEDxWPOPEPAIBwmGn/m741t8+HFrfXed9oZp1vKxqTYdNJa6j2HGh6oV+7lGYRNR8gvcobq9dBgELnJtGsJ0vlpgdYIVkqyGfA49915IIs7FlzjXAYWT0TFkHAkAPWVWif+rXLzP1TDIonThiQsy7E6Y4O3UUAfKGRiPan84LO7PZdUcul/yCtXqFPwuZ+iQHCCTK1RV8=
+    username: AgBooG6IEAn8yAk6idz7ypwMdobdUu49vfgopuVLxccOw70q2WgadOry/3eF+UmMVpRuVM8V85y60++0Zj4F7P2NG7bI+AVHUS15H04g8q4YcDnNwvfbYmyPXLWyCnJ6a3hPmhwCGskZhJLAqPpd+9w/9AfBxMOA7UxHSZbcg+HnOCETvpgZK7pGx5UNkUdnEsSfIMWLciDdnTx7mFfPre+FU7RXMjolTcRAu/IcQgSJGl5Jl94DNx0K6w3alc6VMnviWOCtxT5ESlRd6dy+xsAKVm0c9ZpXDmhbnFTHVamUS/BwVjAVtJEWq7P47ovUqHP1bjfStBAH4tHWyXkEJlEJ8cEnxEF3uhnC3RTHX1yqugKkRNTsq8tDzukBOY1ETHaZpSIk3HWMGLoBjxS6ZzMx2JMFiZ4J+R32hRBjn3wBmU71mjragiuifvSNttvq5iYVVMa6beudimMdvTaOI2+GVE1NsJlS5wsf1rmRvKQfXP+jiaU5cKrCOnZ4xjB0yYShxDst6e80Gj8tL9PmUGiJuA6PkjjvWgyWcWoBBlGZ+rQNSk2T0D0qvsPU/j9I256pSZ5O8ZR993jskdk4phmbG7ShlPMg4TcIQ4OEUKhKtYzBWx22fKlk0yGHFMHQrIVoZagaMLaMtrigq4jWGL5bhSAk5tsr6C9rO9TIPjEPJSyCdBV8r8/PbmRSg+AoSF+iVMRpQDm3jTwoQGltfnqLIYk/8w==
   template:
     metadata:
       creationTimestamp: null
-      name: expressvpn-credentials
-      namespace: torrent
+      name: tstack-credentials
+      namespace: home
+---
