@@ -1,0 +1,311 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: home-assistant
+  namespace: devops
+spec:
+  project: default
+  source:
+    repoURL: ghcr.io/matlerbru/charts
+    targetRevision: 0.1.0
+    chart: home-assistant
+    helm:
+      values: |
+        config: |
+          http:
+            use_x_forwarded_for: true
+            trusted_proxies: 10.0.0.0/16
+
+          homeassistant:
+            latitude: 57.16355909024812
+            longitude: 10.150039286435732
+            unit_system: metric 
+            time_zone: Europe/Copenhagen
+            name: Konstantinsvej 2
+
+          mqtt:
+            sensor:
+              - name: "modbus press"
+                state_topic: "modbus-to-mqtt/output"
+
+          mobile_app:
+
+          automation lights:
+          - alias: Livingroom light toggle
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 1, \"press\": \"short\"}"
+            condition: []
+            action:
+              - type: toggle
+                device_id: 9ea3ad3bad0b6a42b1e2d38cac33092e
+                entity_id: cf0549e3afee1d083651b47c1f8357ac
+                domain: light
+              - domain: light
+                device_id: 204b76e694f4420b479e5435bdb0f24b
+                entity_id: 850c6ef316499cd1a7c21220694211a3
+                type: toggle
+            mode: single
+
+          - alias: Livingroom light dim
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 5, \"press\": \"short\"}"
+            condition: []
+            action:
+              - domain: light
+                type: brightness_decrease
+                device_id: 9ea3ad3bad0b6a42b1e2d38cac33092e
+                entity_id: cf0549e3afee1d083651b47c1f8357ac
+              - domain: light
+                device_id: 204b76e694f4420b479e5435bdb0f24b
+                entity_id: 850c6ef316499cd1a7c21220694211a3
+                type: brightness_decrease
+            mode: single
+
+          - alias: Livingroom light bright
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 4, \"press\": \"short\"}"
+            condition: []
+            action:
+              - domain: light
+                device_id: 9ea3ad3bad0b6a42b1e2d38cac33092e
+                entity_id: cf0549e3afee1d083651b47c1f8357ac
+                type: brightness_increase
+              - domain: light
+                device_id: 204b76e694f4420b479e5435bdb0f24b
+                entity_id: 850c6ef316499cd1a7c21220694211a3
+                type: brightness_increase
+            mode: single
+
+          - alias: Livingroom shelves light toggle
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 0, \"press\": \"short\"}"
+            condition: []
+            action:
+              - type: toggle
+                device_id: 204b76e694f4420b479e5435bdb0f24b
+                entity_id: 850c6ef316499cd1a7c21220694211a3
+                domain: switch
+            mode: single
+
+          - alias: Livingroom shelves light on
+            description: ""
+            trigger:
+              - platform: device
+                type: turned_on
+                device_id: 9ea3ad3bad0b6a42b1e2d38cac33092e
+                entity_id: cf0549e3afee1d083651b47c1f8357ac
+                domain: light
+            condition: []
+            action:
+              - type: turn_on
+                device_id: 204b76e694f4420b479e5435bdb0f24b
+                entity_id: 850c6ef316499cd1a7c21220694211a3
+                domain: switch
+            mode: single
+
+          - alias: Livingroom shelves light off
+            description: ""
+            trigger:
+              - platform: device
+                type: turned_off
+                device_id: 9ea3ad3bad0b6a42b1e2d38cac33092e
+                entity_id: cf0549e3afee1d083651b47c1f8357ac
+                domain: light
+            condition: []
+            action:
+              - type: turn_off
+                device_id: 204b76e694f4420b479e5435bdb0f24b
+                entity_id: 850c6ef316499cd1a7c21220694211a3
+                domain: switch
+            mode: single
+
+          - alias: Kitchen light toggle
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 13, \"press\": \"short\"}"
+            condition: []
+            action:
+              - type: toggle
+                device_id: c4c37a6f5e8a29c37ff61a72c5445434
+                entity_id: 4a3441441cb26401691d6663d0ca6448
+                domain: light
+            mode: single
+
+          - alias: Kitchen light dim
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 9, \"press\": \"short\"}"
+            condition: []
+            action:
+              - device_id: c4c37a6f5e8a29c37ff61a72c5445434
+                entity_id: 4a3441441cb26401691d6663d0ca6448
+                domain: light
+                type: brightness_decrease
+            mode: single
+
+          - alias: Kitchen light bright
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 8, \"press\": \"short\"}"
+            condition: []
+            action:
+              - device_id: c4c37a6f5e8a29c37ff61a72c5445434
+                entity_id: 4a3441441cb26401691d6663d0ca6448
+                domain: light
+                type: brightness_increase
+            mode: single
+
+          - alias: Bathroom light toggle
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 16, \"press\": \"short\"}"
+            condition: []
+            action:
+              - type: toggle
+                device_id: 0c9a09b5184963a9b14aecd3138cc18f
+                entity_id: 719e7150fdec44f7d092f34572e6b6e4
+                domain: light
+            mode: single
+
+          - alias: Bathroom light dim
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 18, \"press\": \"short\"}"
+            condition: []
+            action:
+                device_id: 0c9a09b5184963a9b14aecd3138cc18f
+                entity_id: 719e7150fdec44f7d092f34572e6b6e4
+                domain: light
+                type: brightness_decrease
+            mode: single
+
+          - alias: Bathroom light bright
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 19, \"press\": \"short\"}"
+            condition: []
+            action:
+              - domain: light
+                device_id: 0c9a09b5184963a9b14aecd3138cc18f
+                entity_id: 719e7150fdec44f7d092f34572e6b6e4
+                type: brightness_increase
+            mode: single
+
+          - alias: Bathroom mirror toggle
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": 17, \"press\": \"short\"}"
+            condition: []
+            action:
+              - type: toggle
+                device_id: 4bdb46c90ce1927f1e3a15616fc72dcf
+                entity_id: 35297a106b477953a46f53d4f2fab091
+                domain: switch
+            mode: single
+
+          - alias: Bathroom mirror on
+            description: ""
+            trigger:
+              - platform: device
+                type: turned_on
+                device_id: 0c9a09b5184963a9b14aecd3138cc18f
+                entity_id: 719e7150fdec44f7d092f34572e6b6e4
+                domain: light
+            condition: []
+            action:
+              - type: turn_on
+                device_id: 4bdb46c90ce1927f1e3a15616fc72dcf
+                entity_id: 35297a106b477953a46f53d4f2fab091
+                domain: switch
+            mode: single
+
+          - alias: Bathroom mirror off
+            description: ""
+            trigger:
+              - platform: device
+                type: turned_off
+                device_id: 0c9a09b5184963a9b14aecd3138cc18f
+                entity_id: 719e7150fdec44f7d092f34572e6b6e4
+                domain: light
+            condition: []
+            action:
+              - type: turn_off
+                device_id: 4bdb46c90ce1927f1e3a15616fc72dcf
+                entity_id: 35297a106b477953a46f53d4f2fab091
+                domain: switch
+            mode: single
+
+          - alias: Playroom light toggle
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": \"6\", \"press\": \"short\"}"
+            condition: []
+            action:
+              - type: toggle
+                device_id: 5a87c5642cb904dbe23ccd3f5761cdbc
+                entity_id: 266c55f3eba55b4de3566c5e837e4ce6
+                domain: light
+            mode: single
+
+          - alias: Playroom light dim
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": \"2\", \"press\": \"short\"}"
+            condition: []
+            action:
+              - device_id: 5a87c5642cb904dbe23ccd3f5761cdbc
+                entity_id: 266c55f3eba55b4de3566c5e837e4ce6
+                domain: light
+                type: brightness_decrease
+            mode: single
+
+          - alias: Playroom light bright
+            description: ""
+            trigger:
+              - platform: mqtt
+                topic: modbus-to-mqtt/output
+                payload: "{\"address\": \"3\", \"press\": \"short\"}"
+            condition: []
+            action:
+              - device_id: 5a87c5642cb904dbe23ccd3f5761cdbc
+                entity_id: 266c55f3eba55b4de3566c5e837e4ce6
+                domain: light
+                type: brightness_increase
+            mode: single
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: home
+  syncPolicy:  
+    automated:
+      prune: true
+      selfHeal: true
