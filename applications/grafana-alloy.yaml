@@ -20,17 +20,10 @@ spec:
         - operator: "Exists"
 
         ingress:
-
           enabled: true
-
-          extraPaths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: alloy
-                port:
-                  name: http
+          faroPort: 12345
+          hosts:
+            - alloy.priv
 
         alloy:
         
