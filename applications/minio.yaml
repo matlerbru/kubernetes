@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: oci://registry-1.docker.io/bitnamicharts/minio
-    targetRevision: 14.7.16
+    targetRevision: 14.8.0
     chart: bitnami/minio
     helm:
       values: |
