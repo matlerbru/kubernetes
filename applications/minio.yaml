@@ -49,3 +49,28 @@ spec:
     automated:
       prune: true
       selfHeal: true
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-data
+  namespace: object-storage
+spec:
+  capacity:
+    storage: 1800Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /mnt/data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: minio-data
+  namespace: object-storage
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1800Gi
