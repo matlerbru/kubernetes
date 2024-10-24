@@ -16,33 +16,29 @@ spec:
         auth:
           useSecret: true
           existingSecret: minio-credentials
-          rootUserSecretKey: admin
+          rootUserSecretKey: username
           rootPasswordSecretKey: password
 
         nodeSelector:
           kubernetes.io/hostname: alteret.object-storage.ubnt.local
-          
+
         tolerations:
         - key: object-storage
           operator: Exists
           effect: NoSchedule
 
         ingress:
-
           enabled: true
           hostname: object-storage.priv
 
         apiIngress:
-
           enabled: true
           hostname: object-storage-api.priv
 
         persistence:
-
           existingClaim: minio-data
 
         serviceMonitor:
-
           enabled: true
           interval: 300s
 
