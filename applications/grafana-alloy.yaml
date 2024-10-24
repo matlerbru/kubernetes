@@ -21,14 +21,16 @@ spec:
 
         ingress:
 
+          enabled: true
+
           extraPaths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: ssl-redirect
+                name: alloy
                 port:
-                  name: use-annotation
+                  name: http
 
         alloy:
         
