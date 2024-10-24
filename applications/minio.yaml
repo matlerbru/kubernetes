@@ -19,8 +19,9 @@ spec:
           rootUserSecretKey: admin
           rootPasswordSecretKey: password
 
-        nodeSelector: alteret.object-storage.ubnt.local
-
+        nodeSelector:
+          kubernetes.io/hostname: alteret.object-storage.ubnt.local
+          
         tolerations:
         - key: object-storage
           operator: Exists
