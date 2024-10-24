@@ -1,0 +1,55 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio
+  namespace: devops
+spec:
+  project: default
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 14.8.0
+    chart: bitnami/minio
+    helm:
+      values: |
+
+        fullnameOverride: minio
+
+        auth:
+          useSecret: true
+          existingSecret: minio-credentials
+          rootUserSecretKey: admin
+          rootPasswordSecretKey: password
+
+        nodeSelector: alteret.object-storage.ubnt.local
+
+        tolerations:
+        - key: object-storage
+          operator: Exists
+          effect: NoSchedule
+
+        ingress:
+
+          enabled: true
+          hostname: object-storage.priv
+
+        apiIngress:
+
+          enabled: true
+          hostname: object-storage-api.priv
+
+        persistence:
+
+          existingClaim: minio-data
+
+        serviceMonitor:
+
+          enabled: true
+          interval: 300s
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: object-storage
+  syncPolicy:  
+    automated:
+      prune: true
+      selfHeal: true
