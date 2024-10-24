@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  namespace: devops
+spec:
+  project: default
+  source:
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 8.5.8
+    chart: grafana
+    helm:
+      values: |
+
+        serviceMonitor:
+          enabled: true
+          interval: 300s
+
+        ingress:
+          enabled: true
+          hosts:
+            - grafana.priv
+
+        admin:
+          existingSecret: grafana-credentials
+          userKey: username
+          passwordKey: password
+
+        persistence:
+          enabled: true
+          storageClassName: synology-backup
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:  
+    automated:
+      prune: true
+      selfHeal: true
