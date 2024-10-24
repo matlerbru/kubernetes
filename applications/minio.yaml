@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: charts.bitnami.com/
+    repoURL: charts.bitnami.com
     targetRevision: 14.8.0
     chart: bitnami/minio
     helm:
