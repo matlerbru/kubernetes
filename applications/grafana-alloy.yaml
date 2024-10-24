@@ -18,6 +18,9 @@ spec:
 
         tolerations:
         - operator: "Exists"
+        - key: object-storage
+          operator: Exists
+          effect: NoSchedule
 
         ingress:
           enabled: true
